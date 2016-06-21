@@ -1,0 +1,13 @@
+---
+layout: post
+title: 'CSSE 120 Tangents: List Comprehensions'
+date: '2011-12-15T17:36:00.000-05:00'
+author: David Bliss
+tags:
+- 120Tan
+modified_time: '2011-12-15T17:36:51.396-05:00'
+blogger_id: tag:blogger.com,1999:blog-7437262319199330260.post-1161781663855667267
+blogger_orig_url: http://blog.xenrelay.com/2011/12/csse-120-tangents-list-comprehensions.html
+---
+
+OK, you've seen the accumulator pattern. Let's make things a little more interesting. <br /><br />Suppose we have a chessboard: <br /><pre class="brush: py;">chbrd = [None, None, Piece('Rook'),...]<br /></pre><br />Let's get a list of valid moves for each of the pieces on the board: <br /><pre class="brush: py;">moves = []<br />for p in chbrd:<br />    if p is not None:<br />        moves += p.validMoves()<br /></pre><br />Or, we could do this: <br /><pre class="brush: py;">pieces = [p for p in chbrd if p is not None]<br />moves = [m for p in pieces for m in p.validMoves()]<br /></pre><br />Wait, what? The basic syntax is: <br /><pre>[ {expression} for {variable} in {list-exp} if {condition} ]<br /></pre>The for-***-in-*** part indicates what we're looping over. It is a direct copy-paste from  for loops. {expression} can be any expression, but usually is an expression that includes the  {variable}. {condition} can be any expression, but should a conditional of the {variable}.<br /><br />OK, so what am I really saying? Let's start with a simpler example:<br /><pre class="brush: py;">a = [i*2 for i in range(5)]<br /></pre><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">for i</span> in tells us what our variable is, <span style="font-family: &quot;Courier New&quot;,Courier,monospace;">i</span>.<span style="font-family: &quot;Courier New&quot;,Courier,monospace;"><span style="font-family: Arial,Helvetica,sans-serif;"> </span>in range(5)]</span> tells us we are iterating over the integers 0-4 (inclusive). Our expression is <span style="font-family: &quot;Courier New&quot;,Courier,monospace;">i*2</span>. So, this will assign to <span style="font-family: &quot;Courier New&quot;,Courier,monospace;">a</span> the list [0,2,4,6,8]. The equivalent for loop would be:<br /><br /><pre class="brush: py;">a=[]<br />for i in range(5):<br />    a.append(i*2)<br /></pre><br />Note that the condition expression is optional. When present, it is evaluated per-iteration to see if the item should be outputted. If we had:<br /><br /><pre class="brush: py;">a = [i*2 for i in range(5) if i%2 == 0] </pre><br />Then a would be [0, 4, 8].<br /><br />Note that we can inline nested for loops to a certain extent. See above for an example.
