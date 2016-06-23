@@ -15,4 +15,5 @@ deploy:
   script: firebase deploy
   skip_cleanup: true
   on:
-    branch: master, CI
+    branch: master
+    branch: CI
