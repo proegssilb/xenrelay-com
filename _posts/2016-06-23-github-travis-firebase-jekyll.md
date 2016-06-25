@@ -1,11 +1,13 @@
 ---
 layout: post
 title: 'Using GitHub and Jekyll to create a Firebase-hosted Website'
-date: '2012-06-23T20:35:00.000-05:00'
+date: '2016-06-23T16:35:00.000-05:00'
 author: David Bliss
 tags:
-- 120Tan
-modified_time: '2016-06-23T20:35:16.245-05:00'
+- Firebase
+- TravisCI
+- meta
+- GitHub
 ---
 
 The new [Xen Relay](https://www.xenrelay.com) is static HTML site, courtesy of
