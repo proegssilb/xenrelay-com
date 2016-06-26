@@ -11,5 +11,5 @@ them. Proegssilb, the screen name of the site owner, is one of those people. You
 can view some of his projects on [Github](https://github.com/proegssilb)
 or [Hackaday.io](https://hackaday.io/minifig404) (warning: Lots of WIP).
 
-For now, enjoy the [archive of old posts](/blog/archive) from when he cared about
+For now, enjoy the [archive of old posts](/blog/archive.html) from when he cared about
 posting.
