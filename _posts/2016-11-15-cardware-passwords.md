@@ -43,6 +43,10 @@ card drawn on the left, last drawn on the right. If you drew a Seven of Clubs,
 a Four of Diamonds, and Ace of Hearts, your word would be "soma" (see the
 excerpt above).
 
+Keep drawing sets of three cards until you have a long enough password. For low
+security accounts, 5 words is probably enough, but cryptography and other
+high-security applications should use more words.
+
 # Why should I do this?
 
 First, we need to define what makes a "better" method of
@@ -52,12 +56,16 @@ entry wordlist. Both of these systems use a physical prop to generate "random"
 words from the wordlist. By picking multiple words, we can dramatically increase
 the number of passwords possible without increasing the length of the wordlist.
 
-Mathematically, we can predict how many different passwords failing to shuffle
-the deck of cards each time will let us get. How long of a wordlist do we need?
-[Permutations][perms] of *n* cards gives us the following numbers:
+Mathematics can predict how many different passwords failing to shuffle the deck
+of cards each time will let us get. How long of a wordlist do we need? That
+depends on the number of ways we can draw *n* cards from a 52-card deck. This is
+just picking a [*n*-permutation of a set of 52][perms]; shuffling the deck and
+drawing the first three cards in order is the same as picking three cards
+randomly, one at a time, preserving the order you drew them in. Permutations of
+*n* cards gives us the following numbers:
 
-* **3** 132,600
-* **4** 6,497,400
+* **3 cards**: 132,600
+* **4 cards**: 6,497,400
 
 I'm not sure there's 6.5 million words that people commonly use, but there is
 [a list of 479,829 English words][enwrds] easily available. So, finding enough
@@ -98,6 +106,27 @@ every time? Here's the list, assuming you draw 3 cards per word:
 So, we can basically cut off 1 word from diceware, and maintain or improve the
 number of passwords we could generate. That just leaves [making a wordlist][cw].
 For those that care, I posted the [relevant code on github][wcs].
+
+Now, there's a bit of a problem once you get into really long chains of words.
+At some point, you need to shuffle the deck again, or you'll be cheating yourself
+of extra password space. As you add words, the multiplier used to increase the
+number of passwords that could be generated decreases. Let's look at the above
+list of number of passwords, written differently:
+
+ - **4 words** (52\*51\*50)\*(49\*48\*47)\*(46\*45\*44)\*(43\*42\*41)
+ - **5 words** (52\*51\*50)\*...\*(40\*39\*38)
+ - **5 words** (52\*51\*50)\*...\*(37\*36\*35)
+ - **6 words** (52\*51\*50)\*...\*(34\*33\*32)
+ - **7 words** (52\*51\*50)\*...\*(31\*30\*29)
+ - **8 words** (52\*51\*50)\*...\*(28\*27\*26)
+
+ Remember, this is just [permutations][perms], which are based on factorials.
+ While it looks like the multipliers used go down fairly quickly, moving from 7
+ to 8 words still increases the possible password space by over 19,000 passwords.
+ However, somewhere in the 8-13 word mark, Diceware and PCP are going to start
+ catching up, if you don't shuffle your deck of cards. The approach outlined here
+ should work well for at least 10 years, and it's easy to just shuffle the deck
+ of cards after a while.
 
 [xk]: https://xkcd.com/936/
 [dw]: http://world.std.com/~reinhold/diceware.html
