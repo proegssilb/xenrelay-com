@@ -44,4 +44,11 @@ kramdown:
   input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
   hard_wrap: false
 
-exclude: ["database.rules.json", "firebase.json", 'README.md', 'LICENSE', 'firebase-debug.log']
+exclude:
+  - database.rules.json
+  - firebase.json
+  - README.md
+  - LICENSE
+  - firebase-debug.log
+  - Gemfile
+  - Gemfile.lock
