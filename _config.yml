@@ -52,3 +52,4 @@ exclude:
   - firebase-debug.log
   - Gemfile
   - Gemfile.lock
+  - xenrelay.bolt

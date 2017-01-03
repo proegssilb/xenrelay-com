@@ -1,0 +1,54 @@
+path /comments/{id} is Timestamped<Comment> {
+  read() { true }
+  write() { isSignedIn() }
+}
+
+type Comment {
+  comment: CommentText,
+  parentId: IdString | Null,
+  owner: UserString,
+  authProvider: AuthSourceString,
+  postUrl: UrlString
+}
+
+// ----------- Variations of built-ins -----------
+
+type CommentText extends String {
+  validate() { this.length > 20 && this.length < 1536 }
+}
+
+type IdString extends String {
+  validate() { this == null || this.length < 32 }
+}
+
+type UrlString extends String {
+  validate() { this.length > 0 && this.length < 1024 }
+}
+
+type UserString extends String {
+  validate() { this.length > 0 && this.length < 512 && isCurrentUser(this) && (prior(this) == null || isCurrentUser(prior(this))) }
+}
+
+type AuthSourceString extends String {
+  validate() { this == "github" || this == "google" || this == "twitter" }
+}
+
+// ----------- TIMESTAMPING -----------
+type Timestamped<T> extends T {
+  modified: CurrentTimestamp,
+  created: InitialTimestamp
+}
+
+type CurrentTimestamp extends Number {
+  // Validate needs to allow for some time skew.
+  validate() { this > now - 60000 && this < now + 15000 }
+}
+
+type InitialTimestamp extends Number {
+  // Validate needs to allow for some time skew
+  validate() { prior(this) == null ? (this == prior(this)) : (this > now - 60000 && this < now + 15000) }
+}
+
+initial(value, init) { value == (prior(value) == null ? init : prior(value)) }
+isCurrentUser(uid) { isSignedIn() && auth.uid == uid }
+isSignedIn() { auth != null }
