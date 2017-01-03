@@ -31,7 +31,7 @@ social:
 
 
 # Individual posts can override 'comments' to disable on a post-by-post basis
-comments: false
+comments: true
 
 permalink: /blog/:year/:month/:title.html
 
