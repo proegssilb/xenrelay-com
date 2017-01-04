@@ -1,34 +1,37 @@
 {
   "rules": {
     "comments": {
-      "$id": {
-        ".validate": "newData.hasChildren(['comment', 'owner', 'authProvider', 'postUrl', 'modified', 'created'])",
-        "comment": {
-          ".validate": "newData.isString() && newData.val().length > 20 && newData.val().length < 1536"
+      "$postId": {
+        "$id": {
+          ".validate": "newData.hasChildren(['comment', 'owner', 'ownerDisplay', 'authProvider', 'modified', 'created'])",
+          "comment": {
+            ".validate": "newData.isString() && newData.val().length > 20 && newData.val().length < 1536"
+          },
+          "parentId": {
+            ".validate": "newData.isString() && (newData.val() == null || newData.val().length < 32) && (data.val() == null || newData.val() == data.val())"
+          },
+          "owner": {
+            ".validate": "newData.isString() && (auth != null && auth.uid == newData.val()) && (data.val() == null || auth != null && auth.uid == data.val())"
+          },
+          "ownerDisplay": {
+            ".validate": "newData.isString() && newData.val() == auth.token.name"
+          },
+          "authProvider": {
+            ".validate": "newData.isString() && (newData.val() == 'github' || newData.val() == 'google' || newData.val() == 'twitter') && newData.val() == auth.provider"
+          },
+          "$other": {
+            ".validate": "false"
+          },
+          "modified": {
+            ".validate": "newData.isNumber() && newData.val() == now"
+          },
+          "created": {
+            ".validate": "newData.isNumber() && (data.val() == null ? newData.val() == now : newData.val() == data.val())"
+          },
+          ".read": "true",
+          ".write": "auth != null"
         },
-        "parentId": {
-          ".validate": "newData.isString() && (newData.val() == null || newData.val().length < 32)"
-        },
-        "owner": {
-          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 512 && (auth != null && auth.uid == newData.val()) && (data.val() == null || auth != null && auth.uid == data.val())"
-        },
-        "authProvider": {
-          ".validate": "newData.isString() && (newData.val() == 'github' || newData.val() == 'google' || newData.val() == 'twitter')"
-        },
-        "postUrl": {
-          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length < 1024"
-        },
-        "$other": {
-          ".validate": "false"
-        },
-        "modified": {
-          ".validate": "newData.isNumber() && newData.val() > now - 60000 && newData.val() < now + 15000"
-        },
-        "created": {
-          ".validate": "newData.isNumber() && (data.val() == null ? newData.val() == data.val() : newData.val() > now - 60000 && newData.val() < now + 15000)"
-        },
-        ".read": "true",
-        ".write": "auth != null"
+        ".read": "true"
       }
     }
   }

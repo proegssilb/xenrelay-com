@@ -53,3 +53,5 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - xenrelay.bolt
+  - package.json
+  - node_modules

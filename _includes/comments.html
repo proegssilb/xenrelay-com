@@ -2,7 +2,7 @@
 <div id="frbs-comments">
   <h2>Comments</h2>
   <div id="frbs-login">
-    <div id="sign-in-status">Offline. Cannot load comments or add a comment.</div>
+    <div id="sign-in-status">Offline. Cannot login or add a comment.</div>
     <div id="sign-in">
       <div id="si-lbl-box"><span>Sign in:</span></div>
       <div id="icos">
@@ -18,6 +18,17 @@
       </div>
     </div>
     <div id="sign-out"><span class="btn btn-default" role="button">Sign out</span></div>
+  </div>
+  <div id="add-comment">
+    <form>
+      <div class="form-group">
+        <label for="newCommentText">Post comment</label>
+        <textarea id="newCommentText" class="form-control" rows=4></textarea>
+      </div>
+      <button id="toplvl-comment" type="submit" class="btn btn-default">Post</button>
+    </form>
+  </div>
+  <div id="frbs-tree">
   </div>
 </div>
 {% else %}
