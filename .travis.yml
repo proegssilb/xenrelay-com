@@ -3,7 +3,7 @@ sudo: false
 env:
   - TRAVIS_NODE_VERSION="6.1"
 rvm:
-  - 2.3
+  - 2.2
 script:
   - jekyll --version
   - jekyll build
