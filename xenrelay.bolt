@@ -9,7 +9,7 @@ path /comments/{postId} {
 
 type Comment {
   comment: CommentText,
-  parentId: IdString | Null,
+  parentId: IdString,
   owner: UserString,
   ownerDisplay: UserDisplayName,
   authProvider: AuthSourceString
@@ -18,11 +18,11 @@ type Comment {
 // ----------- Variations of built-ins -----------
 
 type CommentText extends String {
-  validate() { this.length > 20 && this.length < 1536 }
+  validate() { !this.matches(/<[A-Za-z0-9]+(?:\b[^>]*)?>/) && this.length > 20 && this.length < 1536 }
 }
 
 type IdString extends String {
-  validate() { (this == null || this.length < 32) && (prior(this) == null || this == prior(this)) }
+  validate() { (this.matches( /[A-Za-z0-9]{1,32}/ )) && (prior(this) == null || this == prior(this)) }
 }
 
 type UrlString extends String {
