@@ -11,6 +11,13 @@
   -o-transition: $args;
   transition: $args;
 }
+
+@mixin rounded($radius:4px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
 body {
   padding-top: 80px;
   color: #ddd;
@@ -351,4 +358,93 @@ nav.shrink .navbar-toggle {
   border-radius: 3px;
   margin: 2px 3px;
   padding: 0px 5px;
+}
+
+/* Comments */
+#frbs-comments {
+  margin: .5em;
+  margin-top: 2em;
+  border-top: .1em #AAA solid;
+}
+
+#frbs-login {
+  background-color: #555;
+  padding: .5em;
+  @include rounded(.2em);
+  display: flex;
+  align-items: center;
+}
+
+#sign-in, #sign-out {
+  width: 13em;
+  height: 2.5em;
+  text-align: right;
+  display: none;
+}
+
+#sign-out span {
+  background-color: #BBB;
+}
+
+#si-lbl-box {
+  width: 5em;
+  line-height: 2.5em;
+  text-align: center;
+}
+
+#si-lbl-box span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+#sign-in-status {
+  flex: 1;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+.nocomments {
+  padding-top: 1em;
+}
+
+#add-comment {
+  margin-top: 1em;
+  margin-bottom: 1.25em;
+}
+
+#add-comment textarea {
+  background-color: #AAAAAA;
+}
+
+#frbs-tree {
+  margin-top: 1em;
+}
+
+.comment {
+  position: relative;
+  padding: 0.75em;
+  padding-left: 1em;
+  margin-top: 0.5em;
+  border: #999999 .1em solid;
+  border-radius: .2em;
+}
+
+.comment-author {
+  margin-left: .33em;
+  font-weight: bolder;
+}
+
+.comment-date {
+  position: absolute;
+  right: 1em;
+}
+
+#frbs-tree > div:nth-of-type(odd) {
+  background-color: #727272;
+}
+
+#frbs-tree > div:nth-of-type(even) {
+  background-color: #545454;
 }

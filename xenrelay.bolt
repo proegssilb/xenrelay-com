@@ -1,0 +1,62 @@
+path /comments/{postId}/{id} is Timestamped<Comment> {
+  read() { true }
+  write() { isSignedIn() }
+}
+
+path /comments/{postId} {
+  read() { true }
+}
+
+type Comment {
+  comment: CommentText,
+  parentId: IdString,
+  owner: UserString,
+  ownerDisplay: UserDisplayName,
+  authProvider: AuthSourceString
+}
+
+// ----------- Variations of built-ins -----------
+
+type CommentText extends String {
+  validate() { !this.matches(/<[A-Za-z0-9]+(?:\b[^>]*)?>/) && this.length > 20 && this.length < 1536 }
+}
+
+type IdString extends String {
+  validate() { (this.matches( /[A-Za-z0-9]{1,32}/ )) && (prior(this) == null || this == prior(this)) }
+}
+
+type UrlString extends String {
+  validate() { this.length > 0 && this.length < 1024 }
+}
+
+type UserString extends String {
+  validate() { isCurrentUser(this) && (prior(this) == null || isCurrentUser(prior(this))) }
+}
+
+type AuthSourceString extends String {
+  validate() { (this == "github" || this == "google" || this == "twitter") && this == auth.provider }
+}
+
+type UserDisplayName extends String {
+  validate() {this == auth.token.name}
+}
+
+// ----------- TIMESTAMPING -----------
+type Timestamped<T> extends T {
+  modified: CurrentTimestamp,
+  created: InitialTimestamp
+}
+
+type CurrentTimestamp extends Number {
+  // Validate needs to allow for some time skew.
+  validate() { this == now }
+}
+
+type InitialTimestamp extends Number {
+  // Validate needs to allow for some time skew
+  validate() { prior(this) == null ? (this == now) : (this == prior(this)) }
+}
+
+initial(value, init) { value == (prior(value) == null ? init : prior(value)) }
+isCurrentUser(uid) { isSignedIn() && auth.uid == uid }
+isSignedIn() { auth != null }

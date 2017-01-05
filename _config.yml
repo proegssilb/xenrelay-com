@@ -31,7 +31,7 @@ social:
 
 
 # Individual posts can override 'comments' to disable on a post-by-post basis
-comments: false
+comments: true
 
 permalink: /blog/:year/:month/:title.html
 
@@ -44,4 +44,14 @@ kramdown:
   input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
   hard_wrap: false
 
-exclude: ["database.rules.json", "firebase.json", 'README.md', 'LICENSE', 'firebase-debug.log']
+exclude:
+  - database.rules.json
+  - firebase.json
+  - README.md
+  - LICENSE
+  - firebase-debug.log
+  - Gemfile
+  - Gemfile.lock
+  - xenrelay.bolt
+  - package.json
+  - node_modules

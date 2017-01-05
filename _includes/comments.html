@@ -1,0 +1,38 @@
+{% if page.comments %}
+<div id="frbs-comments">
+  <h2>Comments</h2>
+  <div id="frbs-login">
+    <div id="sign-in-status">Offline. Cannot login or add a comment.</div>
+    <div id="sign-in">
+      <div id="si-lbl-box"><span>Sign in:</span></div>
+      <div id="icos">
+        <a id="si-twitter" class="btn btn-social-icon btn-twitter">
+          <span class="fa fa-twitter"></span> &nbsp;
+        </a>
+        <a id="si-google" class="btn btn-social-icon btn-google">
+          <span class="fa fa-google"></span> &nbsp;
+        </a>
+        <a id="si-github" class="btn btn-social-icon btn-github">
+          <span class="fa fa-github"></span> &nbsp;
+        </a>
+      </div>
+    </div>
+    <div id="sign-out"><span class="btn btn-default" role="button">Sign out</span></div>
+  </div>
+  <div id="add-comment">
+    <form>
+      <div class="form-group">
+        <label for="newCommentText">Post comment</label>
+        <textarea id="newCommentText" class="form-control" rows=4></textarea>
+      </div>
+      <button id="toplvl-comment" type="submit" class="btn btn-default">Post</button>
+    </form>
+  </div>
+  <div id="frbs-tree">
+  </div>
+</div>
+{% else %}
+<div id="frbs-comments" class="nocomments">
+  <p>Comments are disabled.</p>
+</div>
+{% endif %}

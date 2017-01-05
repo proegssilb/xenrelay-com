@@ -3,6 +3,7 @@ layout: post
 title: 'Introducing: Cardware Password Generation'
 date: '2016-11-15T19:46:00.000-05:00'
 author: David Bliss
+comments: true
 tags:
 - passwords
 - security
