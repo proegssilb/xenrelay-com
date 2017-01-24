@@ -5,7 +5,6 @@ initApp = function() {
     tables: true,
     sanitize: true
   });
-  firebase.database.enableLogging(true);
   firebase.auth().onAuthStateChanged(authStateChanged, authStateChangeError);
   document.getElementById("si-twitter").addEventListener('click', signInTwitterClicked, false);
   document.getElementById("si-github").addEventListener('click', signInGithubClicked, false);
