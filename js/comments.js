@@ -5,6 +5,7 @@ initApp = function() {
     tables: true,
     sanitize: true
   });
+  firebase.database.enableLogging(true);
   firebase.auth().onAuthStateChanged(authStateChanged, authStateChangeError);
   document.getElementById("si-twitter").addEventListener('click', signInTwitterClicked, false);
   document.getElementById("si-github").addEventListener('click', signInGithubClicked, false);
@@ -60,6 +61,41 @@ function updateComment(data) {
   $(cmntSel + ' .fa').removeClass().addClass('fa fa-' + data.val().authProvider);
 }
 
+function editComment(ev) {
+  var rootId = this.id.substr(3);
+  var oldComment = this.attributes['data-oldComment'].value;
+  var ta = $('<textarea id="editedText" class="form-control" rows=4></textarea>')
+    .html(oldComment)
+    .attr('data-oldComment', oldComment);
+  var fg = $('<div class="form-group"></div>')
+    .append('<label for="editedText">Edited Comment</label>')
+    .append(ta)
+  var btn = $('<button type="submit" class="btn btn-default form="edt-cmnt-frm"></button>"').html('Edit');
+  var form = $('<form id="edt-cmnt-frm"></form>')
+    .append(fg);
+  $('#' + rootId + ' p').hide();
+  $('#' + rootId).append(form).append(btn);
+  btn.click(function (ev) {
+    var urlId = location.pathname.replace(/\//g, "~").replace(/#.*/g, "").replace(/\?.*/g, "").replace(/\./g, "-");
+    var dbref = firebase.database().ref('comments/' + urlId + '/' + rootId);
+    var newText = $('#editedText').val();
+    var newVal = {
+      'modified': firebase.database.ServerValue.TIMESTAMP,
+      'comment': newText
+    };
+    dbref.update(newVal, function (err) {
+      form.remove();
+      btn.remove();
+      $('#' + rootId + ' p').show();
+      if (err) {
+        console.log(JSON.stringify(err));
+      } else {
+        console.log("No error from update.")
+      }
+    });
+  })
+}
+
 function drawComment(data) {
   var parentId = data.val().parentId;
   var parentElem = $(parentId != null ? '#' + parentId : "#frbs-tree");
@@ -78,7 +114,14 @@ function drawComment(data) {
       .html(marked(data.val().comment))
       .appendTo(commentElem);
 
+    // Add the edit link
+    $('<p class="editp">')
+      .html('<button id="edt' + data.key + '" class="btn btn-link editl">Edit</button>')
+      .appendTo(commentElem);
+
     parentElem.append(commentElem);
+    document.getElementById("edt" + data.key).addEventListener('click', editComment, false);
+    $('#edt' + data.key).attr('data-oldComment', data.val().comment);
   } else {
     console.log("Couldn't render comment due to missing parent: " + parentId)
   }
@@ -134,5 +177,4 @@ function postTopLevelComment(ev) {
     "created": posted
   }
   comment.set(msg);
-  console.log(JSON.stringify(msg));
 }
