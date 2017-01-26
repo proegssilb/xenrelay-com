@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 'Blog Post Commenting is now live'
-date: '2016-11-15T19:46:00.000-05:00'
+title: 'Blog Post Commenting is now live [EDITED 2017-01-26]'
+date: '2017-01-26T16:35:00.000-05:00'
 author: David Bliss
 comments: true
 tags:
@@ -44,3 +44,5 @@ Some might observe that even though I'm only using Firebase's DB and Authenticat
 functionality, their analytics could still be looking at my site. To those folks,
 I point out that Firebase Analytics doesn't work on the web (which is why I'm
 using Google Analytics), as does a fair bit of their more advanced functionality.
+
+**EDIT**: Comments can now be replied to in a tree, in addition to editing.
