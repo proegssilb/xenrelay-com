@@ -1,5 +1,6 @@
 initApp = function() {
   $('form').submit(false);
+  firebase.database.enableLogging(true);
   marked.setOptions({
     gfm: true,
     tables: true,
@@ -51,50 +52,6 @@ function loadComments() {
   });
 }
 
-function updateComment(data) {
-  var cmntSel = '#' + data.key;
-  var commentDate = new Date(data.val().created);
-  $(cmntSel + ' .comment-date').html(commentDate.toLocaleString());
-  $(cmntSel + ' .comment-author').html(data.val().ownerDisplay);
-  $(cmntSel + ' .commentText').html(marked(data.val().comment));
-  $(cmntSel + ' .fa').removeClass().addClass('fa fa-' + data.val().authProvider);
-}
-
-function editComment(ev) {
-  var rootId = this.id.substr(3);
-  var oldComment = this.attributes['data-oldComment'].value;
-  var ta = $('<textarea id="editedText" class="form-control" rows=4></textarea>')
-    .html(oldComment)
-    .attr('data-oldComment', oldComment);
-  var fg = $('<div class="form-group"></div>')
-    .append('<label for="editedText">Edited Comment</label>')
-    .append(ta)
-  var btn = $('<button type="submit" class="btn btn-default form="edt-cmnt-frm"></button>"').html('Edit');
-  var form = $('<form id="edt-cmnt-frm"></form>')
-    .append(fg);
-  $('#' + rootId + ' p').hide();
-  $('#' + rootId).append(form).append(btn);
-  btn.click(function (ev) {
-    var urlId = location.pathname.replace(/\//g, "~").replace(/#.*/g, "").replace(/\?.*/g, "").replace(/\./g, "-");
-    var dbref = firebase.database().ref('comments/' + urlId + '/' + rootId);
-    var newText = $('#editedText').val();
-    var newVal = {
-      'modified': firebase.database.ServerValue.TIMESTAMP,
-      'comment': newText
-    };
-    dbref.update(newVal, function (err) {
-      form.remove();
-      btn.remove();
-      $('#' + rootId + ' p').show();
-      if (err) {
-        console.log(JSON.stringify(err));
-      } else {
-        console.log("No error from update.")
-      }
-    });
-  })
-}
-
 function drawComment(data) {
   var parentId = data.val().parentId;
   var parentElem = $(parentId != null ? '#' + parentId : "#frbs-tree");
@@ -115,11 +72,12 @@ function drawComment(data) {
 
     // Add the edit link
     $('<p class="editp">')
-      .html('<button id="edt' + data.key + '" class="btn btn-link editl">Edit</button>')
+      .html('<button id="edt' + data.key + '" class="btn btn-link editl">Edit</button> <button id="rply' + data.key + '" class="btn btn-link editl">Reply</button>' )
       .appendTo(commentElem);
 
     parentElem.append(commentElem);
     document.getElementById("edt" + data.key).addEventListener('click', editComment, false);
+    document.getElementById("rply" + data.key).addEventListener('click', replyToComment, false);
     $('#edt' + data.key).attr('data-oldComment', data.val().comment);
   } else {
     console.log("Couldn't render comment due to missing parent: " + parentId)
@@ -161,6 +119,7 @@ function signInGoogleClicked(ev) {
 }
 
 function postTopLevelComment(ev) {
+  ev.preventDefault()
   var commentText = document.getElementById("newCommentText").value;
   var urlId = location.pathname.replace(/\//g, "~").replace(/#.*/g, "").replace(/\?.*/g, "").replace(/\./g, "-");
   var dbref = firebase.database().ref('comments/' + urlId);
@@ -176,4 +135,73 @@ function postTopLevelComment(ev) {
     "created": posted
   }
   comment.set(msg);
+}
+
+function updateComment(data) {
+  var cmntSel = '#' + data.key;
+  var commentDate = new Date(data.val().created);
+  $(cmntSel + ' .comment-date').html(commentDate.toLocaleString());
+  $(cmntSel + ' .comment-author').html(data.val().ownerDisplay);
+  $(cmntSel + ' .commentText').html(marked(data.val().comment));
+  $(cmntSel + ' .fa').removeClass().addClass('fa fa-' + data.val().authProvider);
+}
+
+function editComment(ev) {
+  var rootId = this.id.substr(3);
+  var oldComment = this.attributes['data-oldComment'].value;
+  var ta = $('<textarea id="editedText" class="form-control" rows=4></textarea>')
+    .html(oldComment)
+    .attr('data-oldComment', oldComment);
+  var fg = $('<div class="form-group"></div>')
+    .append('<label for="editedText">Edited Comment</label>')
+    .append(ta)
+  var btn = $('<button type="submit" class="btn btn-default form="edt-cmnt-frm"></button>"').html('Edit');
+  var form = $('<form id="edt-cmnt-frm"></form>')
+    .append(fg);
+  $('#' + rootId + ' p').hide();
+  $('#' + rootId).append(form).append(btn);
+  btn.click(function (ev) {
+    var urlId = location.pathname.replace(/\//g, "~").replace(/#.*/g, "").replace(/\?.*/g, "").replace(/\./g, "-");
+    var dbref = firebase.database().ref('comments/' + urlId + '/' + rootId);
+    var newText = $('#editedText').val();
+    var newVal = {
+      'modified': firebase.database.ServerValue.TIMESTAMP,
+      'comment': newText
+    };
+    dbref.update(newVal, function (err) {
+      form.remove();
+      btn.remove();
+      $('#' + rootId + ' p').show();
+    });
+  })
+}
+
+function replyToComment(ev) {
+  var rootId = this.id.substr(4);
+  var newDivId = 'reply-form-' + rootId;
+  console.log("Constructing reply form.");
+  $('#add-comment').clone().attr('id', newDivId).appendTo($('#' + rootId));
+  $('#' + newDivId + ' div textarea').attr('id', 'rtxt' + rootId);
+  $('#' + newDivId + ' div label').attr('for', 'rtxt' + rootId);
+  $('#' + newDivId + ' form button').attr('id', 'rbtn' + rootId).click(
+    function (ev) {
+      console.log("Attempting to post.");
+      ev.preventDefault();
+      var urlId = location.pathname.replace(/\//g, "~").replace(/#.*/g, "").replace(/\?.*/g, "").replace(/\./g, "-");
+      var dbref = firebase.database().ref('comments/' + urlId + '/');
+      var commentText = $('#rtxt' + rootId).val()
+      var comment = dbref.push();
+      var posted = firebase.database.ServerValue.TIMESTAMP;
+      var msg = {
+        "comment": commentText,
+        "parentId": rootId,
+        "owner": firebase.auth().currentUser.uid,
+        "ownerDisplay": firebase.auth().currentUser.displayName,
+        "authProvider": firebase.auth().currentUser.providerData[0].providerId.replace(/\.com/, ""),
+        "modified": posted,
+        "created": posted
+      }
+      comment.set(msg);
+      $('#' + newDivId).remove()
+    });
 }
