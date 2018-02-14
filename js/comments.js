@@ -1,6 +1,5 @@
 initApp = function() {
   $('form').submit(false);
-  firebase.database.enableLogging(true);
   marked.setOptions({
     gfm: true,
     tables: true,
