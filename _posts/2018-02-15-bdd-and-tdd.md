@@ -10,9 +10,10 @@ tags:
 - philosophy
 ---
 
-There was a discussion at work about TDD and how to do it right. I thought the
-discussion could benefit from some context from the folks who practice BDD, so
-here's this post to talk about it.
+There was a discussion at work about Test-Driven Development ("TDD") and how to
+do it right. I thought the discussion could benefit from some context from the
+folks who practice Behavior Driven Development ("BDD"), so here's this post to
+talk about it.
 
 # The quick intro
 
