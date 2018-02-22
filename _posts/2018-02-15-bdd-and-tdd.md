@@ -98,7 +98,7 @@ Scenario: Add two numbers
        Then the result should be 120 on the screen
 ```
 
-And the corresponding C#:
+And the corresponding step definitions in C#:
 
 ``` csharp
 using System;
@@ -140,6 +140,15 @@ namespace MyProject.Specs
     }
 }
 ```
+
+SpecFlow uses the feature file as a base for code generation, kind of like T4
+templates. The generated code invokes each step in order. The annotations appear
+to tell the engine which methods to call for each step. Each class, then, is
+limited to being just one scenario in the ideal case (I'm not going to describe
+clever hacks on frameworks I haven't used extensively). My reading suggests that
+placeholders (possibly regular rexpressions) are allowed in each step, allowing
+some flexibility/re-use. Note that each step needs to have unique text for the
+annotations.
 
 ## Code structured to read like Gherkin
 
@@ -230,6 +239,13 @@ public partial class Invoice_feature : FeatureFixture
 }
 ```
 
+Here, instead of relying on auto-generated code to control what's going on,
+the feature itself is executable C# that controls the order of execution. This
+setup is likely less readable for product folks, but works just fine for devs
+(aside from having more ceremony than plain unit tests). While the assumption
+here is once again one class per feature, I'm not sure how important to the
+framework that limitation is.
+
 ## Gherkin optional
 
 Lastly, it is very possible to read more free-form requirements from the code.
@@ -295,7 +311,8 @@ my first spec
 With this, each test class should be a thing getting described, and each method
 should likely be a behavior the thing can do, hence the special behavior with
 "it_verbs" method names seen in the sample. The structure, though, is fairly
-flexible, as long as reading the output makes sense to most people.
+flexible, as long as reading the output makes sense to most people. Don't ask me
+how it guarantees the method order, I can't figure it out.
 
 ## Driving without a harness
 
