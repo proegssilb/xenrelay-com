@@ -308,11 +308,14 @@ my first spec
       also asserts in a lambda
 ```
 
-With this, each test class should be a thing getting described, and each method
-should likely be a behavior the thing can do, hence the special behavior with
-"it_verbs" method names seen in the sample. The structure, though, is fairly
-flexible, as long as reading the output makes sense to most people. Don't ask me
-how it guarantees the method order, I can't figure it out.
+With this, the printed output should be a specification. In general, each test
+class should be a thing getting described, and each method should likely be a
+behavior the thing can do, hence the special behavior with "it_verbs" method
+names seen in the sample. The structure, though, is fairly flexible, as long as
+reading the output makes sense to most people. As for method order, all I know
+is NSpec depends on Mono.Cecil, a library older than Roslyn and is used to
+abstract out details when reading/manipulating IL and otherwise dealing with
+code.
 
 ## Driving without a harness
 
@@ -328,11 +331,10 @@ and frameworks won't do for you.
 
 # Things I did not address
 
-This post is merely to help generate ideas. It does not provide recommendations,
-and doesn't suggest what works well in a given environment. In particular, if
-you have a particular test framework you want to continue using, or a particular
-test runner you like, the libraries I've used for demonstration might not work
-for you. Do your own research before choosing a tool.
+This post is merely to help generate ideas. A good software engineer will always
+look at the people they work with, the organization they are in, and the code
+they work with while considering the options that exist. Therefore, it is your
+responsibility to decide what works well for you and what doesn't.
 
 [dnbdd]: https://dannorth.net/introducing-bdd/
 [wpbdd]: https://en.wikipedia.org/wiki/Behavior-driven_development
