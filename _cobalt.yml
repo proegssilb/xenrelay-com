@@ -1,0 +1,15 @@
+ignore:
+  - database.rules.json
+  - firebase.json
+  - "*.bolt"
+site:
+  title: Xen Relay
+  description: >
+    A personal website waiting to be constructed.
+  base_url: /
+posts:
+  rss: feed.xml
+  dir: _posts
+assets:
+  sass:
+    style: Nested

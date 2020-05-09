@@ -1,4 +1,4 @@
-{% include header.html %}
+{% include header.liquid %}
 
 <div class="wrapper">
   <div class="content">
@@ -7,31 +7,31 @@
         <div class="col-md-8">
           <div class="article">
             <div class="well">
-              <h1><a href="{{ site.baseurl | append:page.url }}">{{ page.title }}</a></h1>
+              <h1><a href="{{ site.base_url | append:page.permalink }}">{{ page.title }}</a></h1>
               <div class="post-meta">
                 <div class="post-time">
                   <i class="fa fa-calendar"></i>
-                  <time>{{ page.date | date_to_string }}</time>
+                  <time>{{ page.published_date | date: "%Y-%m-%d" }}</time>
                 </div>
                 <ul>
                   {% for tag in page.tags %}
-                    <li><a href="{{ site.baseurl }}/tag/{{ tag }}">{{ tag }}</a></li>
+                    <li><a href="{{ site.base_url }}/tag/{{ tag }}">{{ tag }}</a></li>
                   {% endfor %}
                 </ul>
               </div>
               <div class="post-content">
                 <div id="toc" class="toc"></div>
-                {{ content }}
-                {% include comments.html %}
+                {{ page.content }}
+                {% include comments.liquid %}
               </div>
             </div>
           </div>
         </div>
         <div class="col-md-4 hidden-xs">
-          {% include sidebar.html %}
+          {% include sidebar.liquid %}
         </div>
       </div>
     </div>
   </div>
-  {% include footer.html %}
+  {% include footer.liquid %}
 </div>
