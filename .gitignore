@@ -3,3 +3,4 @@ _site
 .jekyll-metadata
 *.log
 node_modules/
+_icomoon/

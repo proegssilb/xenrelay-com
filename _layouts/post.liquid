@@ -1,37 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
 {% include header.liquid %}
-
-<div class="wrapper">
-  <div class="content">
-    <div class="container container-center">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="article">
-            <div class="well">
-              <h1><a href="{{ site.base_url | append:page.permalink }}">{{ page.title }}</a></h1>
-              <div class="post-meta">
-                <div class="post-time">
-                  <i class="fa fa-calendar"></i>
-                  <time>{{ page.published_date | date: "%Y-%m-%d" }}</time>
-                </div>
-                <ul>
-                  {% for tag in page.tags %}
-                    <li><a href="{{ site.base_url }}/tag/{{ tag }}">{{ tag }}</a></li>
-                  {% endfor %}
-                </ul>
-              </div>
-              <div class="post-content">
-                <div id="toc" class="toc"></div>
-                {{ page.content }}
-                {% include comments.liquid %}
-              </div>
+<body>
+{% include body-nav.liquid %}
+<div class="container container-center">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <h1><a href="{{ site.base_url | append:page.permalink }}">{{ page.title }}</a></h1>
+          <div class="post-meta">
+            <div class="post-time">
+              <i class="fa fa-calendar"></i>
+              <time>{{ page.published_date | date: "%Y-%m-%d" }}</time>
             </div>
+            <ul>
+              {% for tag in page.tags %}
+                <li><a href="{{ site.base_url }}/blog/tags/{{ tag }}">{{ tag }}</a></li>
+              {% endfor %}
+            </ul>
           </div>
-        </div>
-        <div class="col-md-4 hidden-xs">
-          {% include sidebar.liquid %}
+          <div class="post-content">
+            <div id="toc" class="toc"></div>
+            {{ page.content }}
+            {% include comments.liquid %}
+          </div>
         </div>
       </div>
     </div>
+    <div class="col-md-4 hidden-xs">
+      {% include sidebar.liquid %}
+    </div>
   </div>
-  {% include footer.liquid %}
 </div>
+{% include footer.liquid %}
+</body>
+</html>

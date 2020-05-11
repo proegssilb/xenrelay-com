@@ -1,0 +1,66 @@
+---
+layout: default.liquid
+title: Blog archive | Xen Relay
+permalink: /blog/archive.html
+pagination:
+  include: All
+  per_page: 40
+  permalink_suffix: "./{{ num }}/"
+  order: Desc
+  sort_by: ["published_date"]
+  date_index: ["Year", "Month"]
+---
+<div class="page-content wc-container">
+  <div class="post">
+
+    <h1>Blog Archive</h1>
+    {% capture year %}0{% endcapture %}
+    {% for pg in paginator.pages %}
+      {% capture currentyear %}{{pg.published_date | date: "%Y"}}{% endcapture %}
+      {% if currentyear != year %}
+        {% unless forloop.first %}</ul>{% endunless %}
+        <h5>{{ currentyear }}</h5>
+        <ul class="posts">
+        {% capture year %}{{currentyear}}{% endcapture %}
+      {% endif %}
+      <li><a href="{{ site.base_url }}/{{ pg.permalink }}">{{ pg.title }}</a></li>
+    {% endfor %}
+    </ul>
+
+    <nav aria-label="Page navigation">
+      {% assign startIndex = paginator.index | minus: 2 | at_least: 1 %}
+      {% assign currIndex  = paginator.index %}
+      {% assign endIndex   = paginator.index | plus: 2 | at_most: paginator.total_indexes %}
+      <ul class="pagination pagination-sm">
+        {% if paginator.previous_index %}
+        <li class="page-item">
+          <a class="page-link" href="{{ site.base_url }}/{{ paginator.previous_index_permalink }}" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        {% endif %}
+
+        {% for pgIndex in (startIndex..endIndex) %}
+          <li class="page-item">
+            {% if pgIndex == currIndex %}
+              <a class="page-link" href="{{ site.base_url }}/{{ paginator.index_permalink }}">{{ paginator.index }}</a>
+            {% elsif pgIndex == 1 %}
+              <a class="page-link" href="{{site.base_url}}/blog/archive.html">{{ pgIndex }}</a>
+            {% else %}
+              <a class="page-link" href="{{ site.base_url }}/blog/archive/all/{{ pgIndex }}">{{ pgIndex }}</a>
+            {% endif %}
+          </li>
+        {% endfor %}
+
+        {% if paginator.next_index %}
+        <li class="page-item">
+          <a class="page-link" href="{{ site.base_url }}/{{ paginator.next_index_permalink }}" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+
+  </div>
+</div>

@@ -8,11 +8,6 @@ tags:
 - passwords
 - security
 - playing-cards
-pagination:
-  include: All
-  per_page: 5
-  order: Desc
-  sort_by: ["published_date"]
 ---
 
 I'm sure almost everyone has heard of [XKCD Passwords][xk] by

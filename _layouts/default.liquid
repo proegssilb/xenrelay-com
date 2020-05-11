@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html>
-
-  {% include head.liquid %}
-
-  <body>
-
-    {% include header.liquid %}
-
-    <div class="page-content">
-      <div class="wrapper">
-        {{ page.content }}
+<html lang="en">
+{% include header.liquid %}
+<body>
+{% include body-nav.liquid %}
+<div class="container container-center">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          {{ page.content }}
+        </div>
       </div>
     </div>
-
-    {% include footer.liquid %}
-
-  </body>
-
+    <div class="col-md-4 hidden-xs">
+      {% include sidebar.liquid %}
+    </div>
+  </div>
+</div>
+{% include footer.liquid %}
+</body>
 </html>

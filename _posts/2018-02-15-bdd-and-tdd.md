@@ -8,11 +8,6 @@ tags:
 - software
 - testing
 - philosophy
-pagination:
-  include: All
-  per_page: 5
-  order: Desc
-  sort_by: ["published_date"]
 ---
 
 There was a discussion at work about Test-Driven Development ("TDD") and how to
