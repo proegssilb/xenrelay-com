@@ -1,0 +1,60 @@
+---
+layout: default.liquid
+title: Blog Posts by Tag | Xen Relay
+permalink: /blog/tags.html
+pagination:
+  include: Tags
+  permalink_suffix: ./{{num}}/
+  per_page: 40
+  date_index: ["Year", "Month"]
+---
+<div class="page-content wc-container">
+  <div class="post">
+    {% if paginator.indexes %}
+    <h1>Tags</h1>
+    <ul>
+    {% for ptag in paginator.indexes %}
+      <li>
+        <a href="/{{ ptag.index_permalink }}/"> {{ ptag.index_title }}, ({{ ptag.total_pages }}) </a>
+      </li>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <h1>Tag: {{ paginator.index_title  }}</h1>
+    <ul>
+    {% for page in paginator.pages %}
+      <li><a href="/{{ page.permalink }}">{{ page.title }}</a> - {{ page.published_date | date: "%Y-%m-%d" }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+
+  <div>
+    {% if paginator.previous_index %}
+    <span>
+      <a href="/{{ paginator.first_index_permalink }}">First</a>
+    </span>
+    <span>
+      <a
+      href="/{{ paginator.previous_index_permalink }}">Previous</a>
+    </span>
+    {% endif %}
+
+    {% if paginator.total_indexes > 1 %}
+    {% endif %}
+    <span>
+      {{ paginator.index }} / {{ paginator.total_indexes }}
+    </span>
+    {% if paginator.next_index %}
+    <span>
+      <a
+      href="/{{ paginator.next_index_permalink }}">Next</a>
+    </span>
+    <span>
+      <a href="/{{ paginator.last_index_permalink }}">Last</a>
+    </span>
+    {% endif %}
+  </div>
+
+
+</div>

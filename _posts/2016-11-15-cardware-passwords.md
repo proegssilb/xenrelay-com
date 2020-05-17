@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: post.liquid
 title: 'Introducing: Cardware Password Generation'
-date: '2016-11-15T19:46:00.000-05:00'
-author: David Bliss
-comments: true
+published_date: '2016-11-15 19:46:00 -05:00'
+data:
+  comments: true
 tags:
 - passwords
 - security
@@ -134,5 +134,5 @@ list of number of passwords, written differently:
 [pcp]: http://www.webplaces.org/passwords/playing-cards-passphrase-method.htm
 [perms]: https://en.wikipedia.org/wiki/Permutation
 [enwrds]: https://github.com/dwyl/english-words
-[cw]: {{ "/files/cardsWordList.txt" | relative_url }}
+[cw]: /files/cardsWordList.txt
 [wcs]: https://github.com/proegssilb/wikipedia-wordcount

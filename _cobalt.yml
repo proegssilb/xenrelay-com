@@ -1,0 +1,23 @@
+ignore:
+  - database.rules.json
+  - firebase.json
+  - "*.bolt"
+  - _icomoon
+  - icomoon-selection.json
+  - LICENSE
+site:
+  title: Xen Relay
+  description: >
+    A personal website waiting to be constructed.
+  base_url: /
+posts:
+  rss: feed.xml
+  dir: _posts
+  default:
+    permalink: /blog/{{ year }}/{{ month }}/{{ slug }}.html
+pages:
+  default:
+    permalink: path
+assets:
+  sass:
+    style: Nested

@@ -1,0 +1,945 @@
+.icon {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-image: url("/images/sprite.svg");
+}
+.bubbles-ico {
+  width: 18px;
+  height: 18px;
+  background-position: 0 0;
+}
+.calendar-ico {
+  width: 18px;
+  height: 18px;
+  background-position: -34px 0;
+}
+.mail-envelope-ico {
+  width: 16px;
+  height: 16px;
+  background-position: 0 -34px;
+}
+.mail-envelope1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -32px -34px;
+}
+.mail-envelope-open-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -64px -34px;
+}
+.mail-envelope-open1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -96px -34px;
+}
+.mail-envelope-closed-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -128px -34px;
+}
+.mail-envelope-closed1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -160px -34px;
+}
+.mail-envelope-open2-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -192px -34px;
+}
+.mail-envelope-open3-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -224px -34px;
+}
+.mail-envelope-open4-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -256px -34px;
+}
+.mail-envelope-open5-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -288px -34px;
+}
+.mail-envelope-closed2-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -320px -34px;
+}
+.mail-envelope-closed3-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -352px -34px;
+}
+.mail-checked-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -384px -34px;
+}
+.mail-checked1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -416px -34px;
+}
+.mail-cancel-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -448px -34px;
+}
+.mail-cancel1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -480px -34px;
+}
+.trophy-ico {
+  width: 16px;
+  height: 16px;
+  background-position: 0 -66px;
+}
+.trophy1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -32px -66px;
+}
+.trophy2-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -64px -66px;
+}
+.trophy3-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -96px -66px;
+}
+.flashed-face-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -128px -66px;
+}
+.flashed-face1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -160px -66px;
+}
+.neutral-face-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -192px -66px;
+}
+.neutral-face1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -224px -66px;
+}
+.smiling-face-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -256px -66px;
+}
+.smiling-face1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -288px -66px;
+}
+.sad-face-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -320px -66px;
+}
+.sad-face1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -352px -66px;
+}
+.laughing-face-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -384px -66px;
+}
+.laughing-face1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -416px -66px;
+}
+.thumb-up-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -448px -66px;
+}
+.thumb-up1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -480px -66px;
+}
+.thumb-down-ico {
+  width: 16px;
+  height: 16px;
+  background-position: 0 -98px;
+}
+.thumb-down1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -32px -98px;
+}
+.file-png-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -64px -98px;
+}
+.file-png1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -96px -98px;
+}
+.file-pdf-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -128px -98px;
+}
+.file-pdf1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -160px -98px;
+}
+.file-mp3-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -192px -98px;
+}
+.file-mp31-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -224px -98px;
+}
+.file-jpg-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -256px -98px;
+}
+.file-jpg1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -288px -98px;
+}
+.file-html-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -320px -98px;
+}
+.file-html1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -352px -98px;
+}
+.file-css-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -384px -98px;
+}
+.file-css1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -416px -98px;
+}
+.file-py-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -448px -98px;
+}
+.file-py1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -480px -98px;
+}
+.file-sql-ico {
+  width: 16px;
+  height: 16px;
+  background-position: 0 -130px;
+}
+.file-sql1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -32px -130px;
+}
+.file-xml-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -64px -130px;
+}
+.file-xml1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -96px -130px;
+}
+.file-yml-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -128px -130px;
+}
+.file-yml1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -160px -130px;
+}
+.file-exe-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -192px -130px;
+}
+.file-exe1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -224px -130px;
+}
+.file-txt-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -256px -130px;
+}
+.file-txt1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -288px -130px;
+}
+.file-zip-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -320px -130px;
+}
+.file-zip1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -352px -130px;
+}
+.document-file-png-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -384px -130px;
+}
+.document-file-png1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -416px -130px;
+}
+.document-file-pdf-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -448px -130px;
+}
+.document-file-pdf1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -480px -130px;
+}
+.document-file-mp3-ico {
+  width: 16px;
+  height: 16px;
+  background-position: 0 -162px;
+}
+.document-file-mp31-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -32px -162px;
+}
+.document-file-jpg-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -64px -162px;
+}
+.document-file-jpg1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -96px -162px;
+}
+.document-file-html-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -128px -162px;
+}
+.document-file-html1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -160px -162px;
+}
+.document-file-css-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -192px -162px;
+}
+.document-file-css1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -224px -162px;
+}
+.document-file-py-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -256px -162px;
+}
+.document-file-py1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -288px -162px;
+}
+.document-file-sql-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -320px -162px;
+}
+.document-file-sql1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -352px -162px;
+}
+.document-file-xml-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -384px -162px;
+}
+.document-file-xml1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -416px -162px;
+}
+.document-file-yml-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -448px -162px;
+}
+.document-file-yml1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -480px -162px;
+}
+.document-file-zip-ico {
+  width: 16px;
+  height: 16px;
+  background-position: 0 -194px;
+}
+.document-file-zip1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -32px -194px;
+}
+.amazon-ico {
+  width: 16px;
+  height: 16px;
+  background-position: 0 -226px;
+}
+.amazonaws-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -32px -226px;
+}
+.amd-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -64px -226px;
+}
+.angellist-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -96px -226px;
+}
+.ansible-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -128px -226px;
+}
+.apachekafka-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -160px -226px;
+}
+.apacheopenoffice-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -192px -226px;
+}
+.arduino-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -224px -226px;
+}
+.atom-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -256px -226px;
+}
+.awesomewm-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -288px -226px;
+}
+.csharp-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -320px -226px;
+}
+.curl-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -352px -226px;
+}
+.digitalocean-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -384px -226px;
+}
+.discord-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -416px -226px;
+}
+.docker-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -448px -226px;
+}
+.dot-net-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -480px -226px;
+}
+.duckduckgo-ico {
+  width: 16px;
+  height: 16px;
+  background-position: 0 -258px;
+}
+.eclipseide-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -32px -258px;
+}
+.elasticsearch-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -64px -258px;
+}
+.elasticstack-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -96px -258px;
+}
+.electron-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -128px -258px;
+}
+.f-droid-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -160px -258px;
+}
+.fedora-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -192px -258px;
+}
+.filezilla-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -224px -258px;
+}
+.gimp-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -256px -258px;
+}
+.git-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -288px -258px;
+}
+.github-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -320px -258px;
+}
+.gitlab-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -352px -258px;
+}
+.gog-dot-com-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -384px -258px;
+}
+.google-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -416px -258px;
+}
+.hackaday-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -448px -258px;
+}
+.hackster-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -480px -258px;
+}
+.heroku-ico {
+  width: 16px;
+  height: 16px;
+  background-position: 0 -290px;
+}
+.html5-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -32px -290px;
+}
+.humblebundle-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -64px -290px;
+}
+.kickstarter-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -96px -290px;
+}
+.libreoffice-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -128px -290px;
+}
+.linkedin-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -160px -290px;
+}
+.linux-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -192px -290px;
+}
+.meetup-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -224px -290px;
+}
+.npm-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -256px -290px;
+}
+.nuget-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -288px -290px;
+}
+.nvidia-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -320px -290px;
+}
+.obsstudio-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -352px -290px;
+}
+.openid-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -384px -290px;
+}
+.opensourceinitiative-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -416px -290px;
+}
+.pastebin-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -448px -290px;
+}
+.postgresql-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -480px -290px;
+}
+.prometheus-ico {
+  width: 16px;
+  height: 16px;
+  background-position: 0 -322px;
+}
+.python-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -32px -322px;
+}
+.r-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -64px -322px;
+}
+.raspberrypi-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -96px -322px;
+}
+.react-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -128px -322px;
+}
+.rss-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -160px -322px;
+}
+.rust-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -192px -322px;
+}
+.signal-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -224px -322px;
+}
+.slack-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -256px -322px;
+}
+.stackexchange-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -288px -322px;
+}
+.stackoverflow-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -320px -322px;
+}
+.steam-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -352px -322px;
+}
+.travisci-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -384px -322px;
+}
+.trello-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -416px -322px;
+}
+.twitch-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -448px -322px;
+}
+.twitter-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -480px -322px;
+}
+.vlcmediaplayer-ico {
+  width: 16px;
+  height: 16px;
+  background-position: 0 -354px;
+}
+.xfce-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -32px -354px;
+}
+.youtube-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -64px -354px;
+}
+.youtube-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -96px -354px;
+}
+.youtube-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -128px -354px;
+}
+.price-tag-ico {
+  width: 16px;
+  height: 16px;
+  background-position: 0 -386px;
+}
+.price-tags-ico {
+  width: 20px;
+  height: 16px;
+  background-position: -32px -386px;
+}
+.address-book-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -64px -386px;
+}
+.envelop-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -96px -386px;
+}
+.calendar1-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -128px -386px;
+}
+.bubble-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -160px -386px;
+}
+.bubbles1-ico {
+  width: 18px;
+  height: 16px;
+  background-position: -192px -386px;
+}
+.bubbles2-ico {
+  width: 18px;
+  height: 16px;
+  background-position: -224px -386px;
+}
+.spinner-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -256px -386px;
+}
+.spinner2-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -288px -386px;
+}
+.spinner3-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -320px -386px;
+}
+.enlarge2-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -352px -386px;
+}
+.shrink2-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -384px -386px;
+}
+.key-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -416px -386px;
+}
+.key2-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -448px -386px;
+}
+.hammer-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -480px -386px;
+}
+.fire-ico {
+  width: 16px;
+  height: 16px;
+  background-position: 0 -418px;
+}
+.lab-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -32px -418px;
+}
+.power-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -64px -418px;
+}
+.warning-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -96px -418px;
+}
+.notification-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -128px -418px;
+}
+.backward2-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -160px -418px;
+}
+.forward3-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -192px -418px;
+}
+.first-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -224px -418px;
+}
+.last-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -256px -418px;
+}
+.previous2-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -288px -418px;
+}
+.next2-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -320px -418px;
+}
+.sort-alpha-asc-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -352px -418px;
+}
+.sort-alpha-desc-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -384px -418px;
+}
+.sort-numeric-asc-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -416px -418px;
+}
+.sort-numberic-desc-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -448px -418px;
+}
+.sort-amount-asc-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -480px -418px;
+}
+.sort-amount-desc-ico {
+  width: 16px;
+  height: 16px;
+  background-position: 0 -450px;
+}
+.share-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -32px -450px;
+}
+.new-tab-ico {
+  width: 16px;
+  height: 16px;
+  background-position: -64px -450px;
+}

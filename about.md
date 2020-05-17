@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default.liquid
 title: About | Xen Relay
 
 ---
@@ -7,7 +7,7 @@ title: About | Xen Relay
 # Welcome to Xen Relay
 
 You've met those people with a thousand ideas and not enough time to work on
-them. Proegssilb, the screen name of the site owner, is one of those people. You
+them. The author of this site, is one of those people. You
 can view some of his projects on [Github](https://github.com/proegssilb)
 or [Hackaday.io](https://hackaday.io/minifig404) (warning: Lots of WIP).
 

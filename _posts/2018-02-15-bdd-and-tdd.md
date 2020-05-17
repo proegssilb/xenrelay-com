@@ -1,9 +1,9 @@
 ---
-layout: post
+layout: post.liquid
 title: 'The Thoughts Behind BDD'
-date: '2018-02-15T21:12:00.000-06:00'
-author: David Bliss
-comments: true
+published_date: '2018-02-15 21:12:00 -06:00'
+data:
+  comments: true
 tags:
 - software
 - testing
