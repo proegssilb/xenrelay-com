@@ -1,7 +1,7 @@
 .icon {
   display: inline-block;
   background-repeat: no-repeat;
-  background-image: url(sprite.svg);
+  background-image: url("/images/sprite.svg");
 }
 .bubbles-ico {
   width: 18px;
@@ -943,4 +943,3 @@
   height: 16px;
   background-position: -64px -450px;
 }
-
