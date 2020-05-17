@@ -13,7 +13,7 @@ script:
   - cobalt build
 deploy:
   provider: script
-  script: firebase deploy
+  script: firebase login --token "$FIREBASE_TOKEN" && firebase deploy
   skip_cleanup: true
   on:
     branch: master
