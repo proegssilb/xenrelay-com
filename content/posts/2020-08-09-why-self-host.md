@@ -1,19 +1,19 @@
 ---
 layout: post.liquid
-title: 'Self-Hosting: Why Self-Host at all?'
-slug: 'why-self-host'
-date: '2022-08-09T11:00:00-04:00'
+title: "Self-Hosting: Why Self-Host at all?"
+slug: "why-self-host"
+date: "2022-08-09T11:00:00-04:00"
 draft: false
 data:
   comments: true
 series:
-- "Self-Hosting"
+  - "Self-Hosting"
 tags:
-- software
-- selfhost
-- philosophy
+  - software
+  - selfhost
+  - philosophy
 aliases:
-- /blog/2020/08/why-self-host.html
+  - /blog/2020/08/why-self-host.html
 summary: >
   Self-hosting has some risks and responsibilities. Backups, updates, fixing it
   when it breaks. And yet, people keep self-hosting. I have some thoughts.
