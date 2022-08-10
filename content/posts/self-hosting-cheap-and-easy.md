@@ -5,8 +5,7 @@ draft: true
 toc: false
 images:
 series:
-- "Self-Hosting"
+  - "Self-Hosting"
 tags:
   - untagged
 ---
-

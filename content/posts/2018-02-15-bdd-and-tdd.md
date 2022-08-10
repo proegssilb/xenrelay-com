@@ -1,18 +1,18 @@
 ---
 layout: post.liquid
-title: 'The Thoughts Behind BDD'
-slug: 'bdd-and-tdd'
-date: '2018-02-15T21:12:00-06:00'
+title: "The Thoughts Behind BDD"
+slug: "bdd-and-tdd"
+date: "2018-02-15T21:12:00-06:00"
 draft: false
 data:
   comments: true
 tags:
-- software
-- testing
-- philosophy
-- software-patterns
+  - software
+  - testing
+  - philosophy
+  - software-patterns
 aliases:
-- /blog/2018/02/bdd-and-tdd.html
+  - /blog/2018/02/bdd-and-tdd.html
 ---
 
 There was a discussion at work about Test-Driven Development ("TDD") and how to
@@ -107,7 +107,7 @@ Scenario: Add two numbers
 
 And the corresponding step definitions in C#:
 
-``` csharp
+```csharp
 using System;
 using TechTalk.SpecFlow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -166,7 +166,7 @@ are instead given as attributes, and the Gherkin is embedded in C# code. The end
 result looks like the following, using partial classes to separate the spec-code
 from the actual test-running code:
 
-``` csharp
+```csharp
 [FeatureDescription(
 @"In order to access personal data
 As an user
@@ -213,7 +213,7 @@ public partial class Invoice_feature //feature name
 }
 ```
 
-``` csharp
+```csharp
 public partial class Login_feature : FeatureFixture
 {
 	private const string _validUserName = "admin";
@@ -264,7 +264,7 @@ backbone of BDD.
 
 An example is worth a lot of words:
 
-``` csharp
+```csharp
 using NSpec;
 using FluentAssertions;
 
