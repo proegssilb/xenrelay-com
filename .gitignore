@@ -1,7 +1,4 @@
-_site
-.sass-cache
-.jekyll-metadata
 *.log
-node_modules/
-_icomoon/
-.firebase/
+public/
+resources/
+.hugo_build.lock
