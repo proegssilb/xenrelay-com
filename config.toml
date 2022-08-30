@@ -55,9 +55,9 @@ enableRobotsTXT = true
     logoCursorAnimate  = "5s"
 
 [taxonomies]
-  category = "blog"
-  tag      = "blog/tags"
-  series   = "blog/series"
+  category = "categories"
+  tag      = "tags"
+  series   = "series"
 
 [permalinks]
   posts = "/blog/:year/:month/:slug/"
@@ -90,4 +90,4 @@ enableRobotsTXT = true
   [[menu.main]]
     identifier = "blog-posts"
     name       = "Blog"
-    url        = "posts/"
+    url        = "blog/"
