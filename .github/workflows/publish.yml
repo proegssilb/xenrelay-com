@@ -1,12 +1,17 @@
-name: Build & Publish
+name: "Build & Publish"
 
 on: [push]
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
+    environment: "Main Env"
     env:
       HUGO_VERSION: 0.101.0
+    permissions:
+      contents: read
+      deployments: write
+    name: Publish to Cloudflare Pages
     steps:
       - name: Install Hugo CLI
         run: |
@@ -23,22 +28,6 @@ jobs:
           HUGO_ENV: production
         run: |
           hugo --minify
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./public
-  publish:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      deployments: write
-    name: Publish to Cloudflare Pages
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          submodules: recursive
-
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@1
         with:
