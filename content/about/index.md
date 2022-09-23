@@ -1,7 +1,7 @@
 ---
 title: "Welcome to Xen Relay"
 date: 2022-08-09T12:30:36-04:00
-draft: true
+draft: false
 ---
 
 You've met those people with a thousand ideas and not enough time to work on
