@@ -1,7 +1,7 @@
 ---
 title: "Ceph Follow Up"
 date: 2023-01-28T13:02:21-05:00
-draft: true
+draft: false
 toc: false
 data:
   comments: true
