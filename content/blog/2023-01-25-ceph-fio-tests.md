@@ -105,7 +105,7 @@ This one takes some doing. Hat tip to [apalrd](https://www.youtube.com/@apalrdsa
 
 1. Install ceph, but don't create any pools or OSDs.
 2. On each node running a manager, run `apt install ceph-mgr-dashboard`
-3. Save the dashboard user's password to "/tmp/pwd.txt"
+3. Save the dashboard user's password to "/tmp/passwd.txt"
 4. On one of the manager nodes, run the following shell commands:
     - `ceph mgr module enable dashboard`
     - `ceph dashboard create-self-signed-cert`
