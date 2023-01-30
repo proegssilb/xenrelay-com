@@ -125,7 +125,22 @@ than a midling consumer SATA SSD, which is what I've got.
 [The troubleshooting docs](https://docs.ceph.com/en/quincy/rados/troubleshooting/troubleshooting-osd/#debugging-slow-requests)
 describes a tool that can be used to figure out which phases of ops are slow. So, that's handy to keep in your pocket.
 
-I run [netdata](https://www.netdata.cloud/), and it is super-handy for getting a lot of info quickly.
+I run [netdata](https://www.netdata.cloud/), and it is super-handy for getting a lot of info quickly. However, its ceph
+support does need some setup.
+
+I've hacked together two commands that sort of help. This one is decent for live-monitoring, but really, it needs a
+chart:
+
+`watch -n 2 "ceph daemon osd.0 dump_ops_in_flight | jq '[.ops[].type_data.flag_point] | group_by(.) | map({"state": .[0], "num": length})'"`
+
+All that does is watch how many currently-running ops are in what state every 2 seconds.
+
+This one parses historic data (from `ceph daemon osd.0 dump_historic_ops`):
+
+`jq '[.ops[] | .type_data.events[]] | group_by(.event) | map({event: .[0].event, avg: (map(.duration) | add / length)})' ops.json`
+
+The historic data command would be far more useful if you could cram multiple minutes of data through it. I haven't
+figured out how to do that yet.
 
 # Where Monitor Data Gets Stored
 
@@ -264,7 +279,8 @@ packets on the network, and that'll make a significant difference. I'm a little 
 network topology I currently have. Enabling jumbo frames should allow me to have more data in each op, and therefore
 better bandwidth in the same iops, but that's just guesswork.
 
-The HDD pool is still a bit off IMO, so I will probably investigate that further and update this post again.
+While I'm not happy with where my HDD pool is at, I'm not seeing how I can get much more out of it. It looks to me like
+the problems are basically that my drives are too slow. So I'll just have to be careful about how much data I put where.
 
 
 
