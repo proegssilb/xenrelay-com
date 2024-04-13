@@ -91,3 +91,7 @@ enableRobotsTXT = true
     identifier = "blog-posts"
     name       = "Blog"
     url        = "blog/"
+  [[menu.main]]
+    identifier = "galleries"
+    name       = "Photos"
+    url        = "galleries/"
