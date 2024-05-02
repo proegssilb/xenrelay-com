@@ -9,6 +9,6 @@ them. The author of this site, is one of those people. You
 can view some of his projects on [Github](https://github.com/proegssilb)
 or [Hackaday.io](https://hackaday.io/minifig404) (warning: Lots of works-in-progress).
 
-For now, enjoy the slow-moving [blog](/posts/). Maybe a new post will happen
+For now, enjoy the slow-moving [blog](/blog/). Maybe a new post will happen
 once a week, maybe once every other year. Life has a tendency of happening to
 all of us.
