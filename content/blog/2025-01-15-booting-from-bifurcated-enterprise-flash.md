@@ -1,6 +1,6 @@
 ---
 title: "Booting From Bifurcated Enterprise Flash"
-date: 2025-01-18T10:47:42-05:00
+date: 2025-01-15T10:47:42-05:00
 draft: false
 toc: false
 data:
@@ -12,7 +12,7 @@ tags:
   - hardware
   - selfhost
 summary: >
-  More ceph benchmarks, with consumer NVMe!
+  Bios setup for bifurcation on the 5038MR-H8TRF.
 ---
 
 I decided to get into the world of enterprise m.2 NVME flash. As it turns out,
