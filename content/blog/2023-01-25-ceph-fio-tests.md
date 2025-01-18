@@ -9,6 +9,7 @@ images:
 series:
   - "Self-Hosting"
 tags:
+  - hardware
   - hardware-perf
   - software-config
   - software

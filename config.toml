@@ -22,7 +22,7 @@ enableRobotsTXT = true
   description = "A personal site focusing on how we build a better tomorrow in computers & technology"
   keywords = "homepage, blog"
   images = [""]
-  
+
   [params.author]
     name = "proegssilb"
 
@@ -102,3 +102,20 @@ pagerSize = 25
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+# Shutdown Hugo's built-in templates. Doesn't impact theme shenanigans.
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    disable = true
+  [privacy.instagram]
+    disable = true
+  [privacy.vimeo]
+    disable = true
+  [privacy.x]
+    disable = true
+  [privacy.youtube]
+    disable = true
+
+
