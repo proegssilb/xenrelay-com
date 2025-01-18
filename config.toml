@@ -2,7 +2,6 @@ baseurl      = "https://www.xenrelay.com/"
 title        = "Xen Relay"
 languageCode = "en-us"
 theme        = "hello-friend-ng"
-paginate     = 25
 rssLimit     = 50
 
 enableRobotsTXT = true
@@ -23,8 +22,11 @@ enableRobotsTXT = true
   description = "A personal site focusing on how we build a better tomorrow in computers & technology"
   keywords = "homepage, blog"
   images = [""]
+  
+  [params.author]
+    name = "proegssilb"
 
- [params.footer]
+  [params.footer]
     trademark = true
     rss = true
     copyright = false
@@ -54,6 +56,9 @@ enableRobotsTXT = true
     # Set to a valid CSS time value to change the animation duration, "0s" to disable.
     logoCursorAnimate  = "5s"
 
+[pagination]
+pagerSize = 25
+
 [taxonomies]
   category = "categories"
   tag      = "tags"
@@ -61,9 +66,6 @@ enableRobotsTXT = true
 
 [permalinks]
   posts = "/blog/:year/:month/:slug/"
-
-[author]
-  name = "proegssilb"
 
 #[languages]
   #[languages.en]
@@ -95,3 +97,8 @@ enableRobotsTXT = true
     identifier = "galleries"
     name       = "Photos"
     url        = "galleries/"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
