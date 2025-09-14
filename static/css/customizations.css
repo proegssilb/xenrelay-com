@@ -68,3 +68,43 @@ main.post {
   text-decoration: none;
   cursor: pointer;
 } 
+
+/* Simple alert boxes from w3schools, slightly modified - https://www.w3schools.com/howto/howto_js_alert.asp */
+
+/* The alert message box */
+.infobox {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #d1ecf1;
+  color: #0c5460;
+  margin-bottom: 15px;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  border: 1px solid;
+}
+
+.info-icon {
+  position: relative;
+  top: 0rem;
+  left: 0rem;
+  font-size: 3rem;
+  margin-right: 1rem;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
