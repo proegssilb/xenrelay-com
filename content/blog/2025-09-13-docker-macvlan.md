@@ -20,9 +20,9 @@ summary: >
 
 # Intro
 
-Very few people bother with Docker Swarm anymore, thanks to the all-powerful
+Very few people bother with Docker Swarm any more, thanks to the all-powerful
 hydra of Kubernetes. So on the rare occasion when you need to do something just
-a smidge off the beaten path (like put docker containers directly on the 
+a smidge off the beaten path (like put docker containers directly on the
 network), it can be difficult to find the information you need.
 
 Thanks to [this blog post](https://it4home.dk/index.php/2024/02/25/comprehensive-guide-to-macvlan-with-docker-swarm/),
@@ -38,8 +38,8 @@ Swarm Mode (which is built-in to Docker itself). Not confusing at all.
 
 What am I trying to do today? I want all of my containers in Docker Swarm to be
 directly accessible on my network. No port mapping, no NAT, nothing. Why? 
-Because I've got hordes of IP address space already in ipv4, I've got firewalls
-between my vlans on the network, and it's silly not to use what I've got. Web 
+Because I've got hordes of IP address space already in IPv4, I've got firewalls
+between my VLANs on the network, and it's silly not to use what I've got. Web 
 app containers are all designed to serve HTTP directly anyway. The only reason
 to use nginx proxy manager or traefik is to centralize TLS handling and 
 eliminate the need to memorize port numbers (both very good reasons, mind you).
@@ -47,7 +47,7 @@ But for a super-basic "quick and dirty" setup, containers directly on the
 network gets you a real IP address that works anywhere on your LAN, and ports
 that don't muck with each other just because you picked the wrong machine.
 
-As an actual reason, consider: (1) Seperation of concerns, (2) Minimizing the 
+As an actual reason, consider: (1) Separation of concerns, (2) Minimizing the 
 chance of running out of IP addresses. I don't anticipate running ~250 machines
 or ~250 VMs, but add network switches + hosts + VMs + IoT devices + containers,
 and yeah, I might actually get to ~250 addresses used. VLANs to the rescue!
@@ -64,18 +64,18 @@ address? Or do you make docker manage IP Addresses, bypassing DHCP? I chose
 the latter, since manually adapting every container I wanted to use sounded
 like a pain. Docker daemons apparently don't coordinate with each other when
 allocating IP addresses in swarm mode (nor do they speak DHCP), so each host 
-has to instead have a unique ip range to allocate addresses from. That 
+has to instead have a unique IP range to allocate addresses from. That 
 requirement creates a two-step process, and now you know why I'm writing all
 this down.
 
 The process:
-  1. Set up each node with a config-only network that controls ip address range
+  1. Set up each node with a config-only network that controls IP address range
      and parent network interface
   2. Create a macvlan network at the swarm scope
   
 # The Network Setup
 
-I'm assuming you have an ipv4 network in the range 192.168.0.0/16. Most home 
+I'm assuming you have an IPv4 network in the range 192.168.0.0/16. Most home 
 networks are probably setup with 192.168.0.0/24, which is one possible subnet
 of the broader space I listed. If you have a Unifi network or pfsense/opnsense,
 then you can define a subnet at `192.168.16.0/20`, and then up to 16 devices
@@ -110,7 +110,7 @@ Here's the basic command for setting up each node's docker with a specific IP
 range:
 
 ```bash
-docker network create --config-only --subnet 192.168.16.0/20 --aux-address="host=192.168.16.1" -o parent=eth0 --ip-range 192.168.16.0/24 --gateway 192.168.16.1 macvlanconf
+docker network create --config-only --subnet 192.168.16.0/20 --aux-address="host=192.168.16.1" -o parent=eth0 --IP-range 192.168.16.0/24 --gateway 192.168.16.1 macvlanconf
 ```
 
 Argument info:
@@ -139,12 +139,12 @@ Let's see the other variations:
 
 | Machine | Command |
 |---------|---------|
-| mgr01   | `docker network create --config-only --subnet 192.168.16.0/20 -o parent=eth0 --ip-range 192.168.16.0/24 --aux-address="host=192.168.16.1" --gateway 192.168.16.1 macvlanconf` |
-| mgr02   | `docker network create --config-only --subnet 192.168.16.0/20 -o parent=eth0 --ip-range 192.168.17.0/24 --aux-address="host=192.168.17.1" --gateway 192.168.16.1 macvlanconf` |
-| mgr03   | `docker network create --config-only --subnet 192.168.16.0/20 -o parent=eth0 --ip-range 192.168.18.0/24 --aux-address="host=192.168.18.1" --gateway 192.168.16.1 macvlanconf` |
-| swarm01 | `docker network create --config-only --subnet 192.168.16.0/20 -o parent=eth0 --ip-range 192.168.19.0/24 --aux-address="host=192.168.19.1" --gateway 192.168.16.1 macvlanconf` |
-| swarm02 | `docker network create --config-only --subnet 192.168.16.0/20 -o parent=eth0 --ip-range 192.168.20.0/24 --aux-address="host=192.168.20.1" --gateway 192.168.16.1 macvlanconf` |
-| swarm03 | `docker network create --config-only --subnet 192.168.16.0/20 -o parent=eth0 --ip-range 192.168.21.0/24 --aux-address="host=192.168.21.1" --gateway 192.168.16.1 macvlanconf` |
+| mgr01   | `docker network create --config-only --subnet 192.168.16.0/20 -o parent=eth0 --IP-range 192.168.16.0/24 --aux-address="host=192.168.16.1" --gateway 192.168.16.1 macvlanconf` |
+| mgr02   | `docker network create --config-only --subnet 192.168.16.0/20 -o parent=eth0 --IP-range 192.168.17.0/24 --aux-address="host=192.168.17.1" --gateway 192.168.16.1 macvlanconf` |
+| mgr03   | `docker network create --config-only --subnet 192.168.16.0/20 -o parent=eth0 --IP-range 192.168.18.0/24 --aux-address="host=192.168.18.1" --gateway 192.168.16.1 macvlanconf` |
+| swarm01 | `docker network create --config-only --subnet 192.168.16.0/20 -o parent=eth0 --IP-range 192.168.19.0/24 --aux-address="host=192.168.19.1" --gateway 192.168.16.1 macvlanconf` |
+| swarm02 | `docker network create --config-only --subnet 192.168.16.0/20 -o parent=eth0 --IP-range 192.168.20.0/24 --aux-address="host=192.168.20.1" --gateway 192.168.16.1 macvlanconf` |
+| swarm03 | `docker network create --config-only --subnet 192.168.16.0/20 -o parent=eth0 --IP-range 192.168.21.0/24 --aux-address="host=192.168.21.1" --gateway 192.168.16.1 macvlanconf` |
 
 The subnet I picked can handle up to 16 nodes, the last IP Range being 
 `192.168.31.0/24`. If you have need for a larger swarm than that, please
@@ -187,7 +187,7 @@ Argument info:
 
 The structure of the networks should now be much more apparent. The 
 swarm-scoped network borrows the machine-specific config by reference. That 
-borowing is how we get a consistent definition across the swarm.
+borrowing is how we get a consistent definition across the swarm.
 
 # Testing the setup
 
@@ -225,7 +225,7 @@ working. Best of luck with your next containers project!
 I can't really help with troubleshooting too much, but here's some things to check:
 
   - Can you ping the docker hosts on all IP addresses they own?
-  - Do your docker hosts all have an address in the containers vlan?
+  - Do your docker hosts all have an address in the containers VLAN?
   - Can your router route packets between your VLANs?
   - Is a firewall interfering?
   
