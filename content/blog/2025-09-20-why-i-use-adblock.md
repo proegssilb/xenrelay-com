@@ -1,7 +1,7 @@
 ---
 title: "Why I Use Adblock"
 date: 2025-09-20T09:45:14-04:00
-draft: true
+draft: false
 toc: false
 data:
   comments: true
