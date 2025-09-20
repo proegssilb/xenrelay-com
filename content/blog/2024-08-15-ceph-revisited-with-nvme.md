@@ -27,7 +27,7 @@ I recently rebuilt my server cluster. I finally ditched the SATADOMs I was using
 
 - Hardware
     - 2x HDDs (Mix of Seagate IronWolf and WD Red, all 7200RPM and CMR)
-    - 2x [Teamgroup MP44L](/files/mp44l-en.pdf) plugged into a bifurcated PCIe Gen3 x8 slot via PCIe Gen 4 card. 
+    - 2x [Teamgroup MP44L](/files/mp44l-en.pdf) plugged into a bifurcated PCIe Gen3 x8 slot via PCIe Gen 4 card.
         - Yes, a Gen4 drive in a Gen3 slot. It's an oopsie, but I don't hate it.
     - Plenty of CPU to go around
     - 64 GB of RAM per node
@@ -76,7 +76,7 @@ test: (g=0): rw=randrw, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, io
 fio-3.33
 Starting 1 process
 test: Laying out IO file (1 file / 1024MiB)
-Jobs: 1 (f=1): [m(1)][99.9%][r=1021KiB/s,w=356KiB/s][r=255,w=89 IOPS][eta 00m:01s] 
+Jobs: 1 (f=1): [m(1)][99.9%][r=1021KiB/s,w=356KiB/s][r=255,w=89 IOPS][eta 00m:01s]
 test: (groupid=0, jobs=1): err= 0: pid=4282: Thu Aug 15 13:54:39 2024
   read: IOPS=117, BW=471KiB/s (482kB/s)(768MiB/1668855msec)
    bw (  KiB/s): min=    8, max= 1688, per=100.00%, avg=473.95, stdev=149.44, samples=3317

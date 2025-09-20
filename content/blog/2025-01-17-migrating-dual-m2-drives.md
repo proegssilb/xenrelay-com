@@ -19,7 +19,7 @@ summary: >
 ---
 
 First of all, let's be clear. If you have an m.2 NVMe docks that lets you run
-`f3probe` without incident, you should use it. I don't, so I didn't. And 
+`f3probe` without incident, you should use it. I don't, so I didn't. And
 consequently, I had to put some more work in.
 
 ## A Word About eBay Flash
@@ -67,7 +67,7 @@ So here's what my process for the first node looked like:
 - Allow cluster to recover
 
 As expected, booting into proxmox on new NVME "C" drive fell apart. That's when
-I got some help to figure out the BIOS settings [from the last post](biossettings). 
+I got some help to figure out the BIOS settings [from the last post](biossettings).
 
 With the bios settings tweaked and a ventoy loaded with gparted live (and some
 other images), I kept the network cables unplugged the entire time I was working
@@ -103,7 +103,7 @@ Overall, this stage of the process was time-consuming, but straightforward.
 
 This stage, on the other hand, was not simple.
 
-On the original 1TB drives, there was not any free space to spare. But if I 
+On the original 1TB drives, there was not any free space to spare. But if I
 wanted to make full use of the new 2TB drives, I had to make space. Back into
 gparted we go!
 
@@ -121,7 +121,7 @@ time, and rebooting as necessary.
 
 Things I learned:
 - LVM partitions need to be deactivated to be able to move them.
-- If you chain too many LVM operations together, gparted is likely to get 
+- If you chain too many LVM operations together, gparted is likely to get
   confused. Do one or two non-overlapping operations at a time, and reboot it
   necessary.
 - [ZFS might need some coaxing to actually use its new space](zfsresize)

@@ -91,9 +91,9 @@ issues. The rest of this screen I left alone.
     caption="Screenshot 2: Chipset Configuration > Northbridge > IIO Configuration > IIO1 Configuration"
 >}}
 
-Yup they buried this stuff. 
-- The important setting is "IOU1 (IIO1 PCIe Port 3)". Make sure that's bifurcated appropriately to your setup. 
-- Link speed you might need to fix in your setup, but Gen3 is correct for my hardware. 
+Yup they buried this stuff.
+- The important setting is "IOU1 (IIO1 PCIe Port 3)". Make sure that's bifurcated appropriately to your setup.
+- Link speed you might need to fix in your setup, but Gen3 is correct for my hardware.
 
 The rest I left at default.
 
@@ -115,7 +115,7 @@ The rest I left at default.
 
 - I suspect "AddOn ROM Display Mode" can be changed freely, but I'm not sure I've
   confirmed that.
-- "Boot option filter" must be set to "UEFI and Legacy" to allow both NVMe boot and network boot. 
+- "Boot option filter" must be set to "UEFI and Legacy" to allow both NVMe boot and network boot.
 - "Network" must be set to "Legacy"
 - "Launch Storage OpROM Policy" I changed to "UEFI First" and never experimented with
 - "Video" should be left at "Legacy".
