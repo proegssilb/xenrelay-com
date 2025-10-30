@@ -17,8 +17,8 @@ summary: >
 
 I decided to get into the world of enterprise m.2 NVME flash. As it turns out,
 booting from enterprise flash comes with some quirks. Especially for older or
-transitional BIOS. For anyone running a [Supermicro SuperServer 5038MR-H8TRF](smchassis)
-or a [X10SRD-F motherboard](smmobo), here's what worked for me.
+transitional BIOS. For anyone running a [Supermicro SuperServer 5038MR-H8TRF](https://www.supermicro.com/products/system/3U/5038/SYS-5038MR-H8TRF.cfm)
+or a [X10SRD-F motherboard](https://www.supermicro.com/en/products/motherboard/X10SRD-F), here's what worked for me.
 
 ## The Hardware
 For those not interested in visiting Supermicro's website to see what hardware I have, here's some images:
@@ -57,13 +57,13 @@ NVMe drives. My card is an Amazon special, so it does not have a PCI-e switch
 chip. That means we'll have to change BIOS settings, which I'll show how to do
 in this post.
 
-For the m.2 drives, I have two [Samsung 983 DCT](ss983) drives (search ebay for
+For the m.2 drives, I have two [Samsung 983 DCT](https://web.archive.org/web/20250118200717/https://www.samsung.com/us/business/support/owners/product/983-dct-series-m-2-1-9tb/) drives (search ebay for
 "PM983" or "MZ-1LB1T90"). It appears as though these drives might only work in
 UEFI systems, but I did make that work in my servers (YMMV).
 
 ## Step 1: Update the bios
 If your current bios isn't from 2021, or is older than 3.4, get the latest
-version [from Supermicro's website](smbios). Whether this step is necessary
+version [from Supermicro's website](https://www.supermicro.com/en/support/resources/downloadcenter/firmware/MBD-X10SRD-F/BIOS). Whether this step is necessary
 or not is an open question, but in my view, it eliminates variables.
 
 ## Step 2: Change BIOS Settings
@@ -124,8 +124,3 @@ Finally, tune your boot order to your preference.
 
 Save & reboot, and you should be able to boot from both your m.2 drives, and
 also the network (if you have netboot setup)!
-
-[smchassis]: https://www.supermicro.com/products/system/3U/5038/SYS-5038MR-H8TRF.cfm
-[smmobo]: https://www.supermicro.com/en/products/motherboard/X10SRD-F
-[smbios]: https://www.supermicro.com/en/support/resources/downloadcenter/firmware/MBD-X10SRD-F/BIOS
-[ss983]: https://web.archive.org/web/20250118200717/https://www.samsung.com/us/business/support/owners/product/983-dct-series-m-2-1-9tb/
