@@ -87,7 +87,7 @@ I've changed "Quiet Boot" and "AddOn ROM Display Mode" pretty freely without
 issues. The rest of this screen I left alone.
 
 {{< figure
-    src="/images/5038mr-bios-1.png"
+    src="/images/5038mr-bios-2.png"
     caption="Screenshot 2: Chipset Configuration > Northbridge > IIO Configuration > IIO1 Configuration"
 >}}
 
