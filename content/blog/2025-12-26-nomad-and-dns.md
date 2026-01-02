@@ -2,7 +2,7 @@
 title: "Nomad and DNS: How to Get The Basics Rolling"
 date: 2025-12-26T12:01:06-05:00
 draft: false
-toc: false
+toc: true
 data:
   comments: true
 images:
