@@ -208,13 +208,13 @@ I've explained this before, so let's be quick about this:
 - Bridge mode networking for this app. It listens on port 80, but we don't care what port it's on externally.
 - The restart policy is mostly made up. Delete the block if you like, or rewrite it how you like.
 - Service registration is now in Consul. I use the tag `expose-lab` to flag services for nginx. This is adjustable, you'll see later.
-- There is a health check on the consul service.
+- There is a health check on the `ittools` service.
 - Pretty basic Docker app with some mildly low limits They probably could be tighter.
 
 Get the job running, then check that you can load the home page via IP Address and Port Number. Nomad's UI will help
 with that. Then, make sure it-tools is registered in Consul, and then check that DNS queries to Consul work anonymously.
-CoreDNS will be running DNS queries to Consul, so best to make sure they work now. If not, here's the ACL policy you'll
-need to grant to the anonymous token:
+CoreDNS will be forwarding DNS queries to Consul, so best to make sure they work now. If not, here's the ACL policy
+you'll need to grant to the anonymous token:
 
 ```hcl
 service_prefix "" {
@@ -545,8 +545,8 @@ Explanation:
 - No special update process needed.
 - Static port mapping, but we can let Nomad do bridged networking. Important thing is Port 80 in & out of the task.
 - HTTPS not added yet. Soon (tm).
-- Service block to make sure Nomad exposes nginx to the outside world. Also registers in consul, but that's not
-    relevant to any use case I have.
+- Service block to make sure Nomad exposes nginx to the outside world. Also registers in Consul, but that's not
+  relevant to any use case I have.
 - Docker driver because it'll work here.
     - The nginx container has some expectations about config file location & naming, so mounting `local/` makes it
         easier to check the boxes
@@ -557,17 +557,17 @@ Explanation:
         Whatever `if` condition you can template for, you can use to filter Consul services. [Check the docs](https://developer.hashicorp.com/nomad/docs/job-specification/template),
         start following links, have fun. Personally, I'll stick to `expose-lab`, and maybe an `expose-prod` tag if I
         feel like maintaining a more production-grade environment.
-    - The `upstream` block lists the tasks we're proxying to, and uses [a consul query to get service details](https://github.com/hashicorp/consul-template/blob/main/docs/templating-language.md#services).
+    - The `upstream` block lists the tasks we're proxying to, and uses [a Consul query to get service details](https://github.com/hashicorp/consul-template/blob/main/docs/templating-language.md#services).
     - The `server` block establishes vhost DNS name, ports, and the link to the backend.
 - The file name is important. nginx looks for `default.conf` first.
 - Signal-based reloading works here, so I use it. Check the logs to make sure your changes stick.
 
 #### Templating
-You'll note in the nginx job HCL the heavy reliance on consul-specific service discovery templating. There are [functions
+You'll note in the nginx job HCL the heavy reliance on Consul-specific service discovery templating. There are [functions
 for Nomad service registration](https://github.com/hashicorp/consul-template/blob/main/docs/templating-language.md#nomadservices)
 that should do similar thing, but I was not able to get them to work in testing. It's possibly I got many things wrong,
 but without any logs or troubleshooting insight, I was not able to identify why the Nomad functions didn't work. So,
-consul templating it is.
+Consul templating it is.
 
 #### ACL Policy
 
