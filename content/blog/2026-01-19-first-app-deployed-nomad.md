@@ -1,7 +1,7 @@
 ---
 title: "First App Deployed: Lessons Learned"
 date: 2026-01-19T09:49:40-05:00
-draft: true
+draft: false
 toc: false
 data:
   comments: true
