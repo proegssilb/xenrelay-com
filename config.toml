@@ -98,6 +98,9 @@ pagerSize = 25
     name       = "Photos"
     url        = "galleries/"
 
+[imaging]
+  quality = 95
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]

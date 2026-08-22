@@ -28,7 +28,7 @@ main.post {
  .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 100; /* Sit on top */
+  z-index: 10000; /* Sit on top, above the nav menu (z-index: 9999) */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -45,7 +45,7 @@ main.post {
   padding: 20px;
   border: 1px solid #aaa;
   width: 80%; /* Could be more or less, depending on screen size */
-  z-index: 101;
+  z-index: 10001;
 }
 
 .modal-content img {
