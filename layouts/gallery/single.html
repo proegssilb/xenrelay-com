@@ -32,6 +32,8 @@
         <div class="modal-content" onclick="close_modal(event)">
             <span class="close" onclick="close_modal(event)">&times;</span>
             <img id="modalImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" onclick="close_modal(event)">
+            <button type="button" class="nav-zone prev" aria-label="Previous image" onclick="nav_modal(-1, event)"><span class="nav-chev">&#8249;</span></button>
+            <button type="button" class="nav-zone next" aria-label="Next image" onclick="nav_modal(1, event)"><span class="nav-chev">&#8250;</span></button>
         </div>
 
     </div>
