@@ -24,7 +24,7 @@ function close_modal(e) {
     console.log("Step 1...");
     var im_tag = document.getElementById("modalImg");
     console.log("Step 2...");
-    im_tag.src = "/images/curls.png";
+    im_tag.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E";
     console.log("Freaking weirdos...");
     window.onclick = function(event) {};
 }
